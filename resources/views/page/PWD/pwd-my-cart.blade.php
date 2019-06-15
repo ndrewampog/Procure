@@ -26,7 +26,7 @@
 
 
 <div class="container">
-	{!! Form::open(array('url' => '/Normal-User/proceed-with-your-order', 'files'=>true  ))!!}
+	{!! Form::open(array('url' => '/PWD/proceed-with-your-order', 'files'=>true  ))!!}
 
 
 	<h2 class="my-4">My Cart</h2>

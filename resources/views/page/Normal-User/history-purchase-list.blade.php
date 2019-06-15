@@ -19,7 +19,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>	
-										<th scope="col" class="text-center">Pharmacist Name</th>
+										<th scope="col" class="text-center">Pharmacy Name</th>
 										<th scope="col" class="text-center">Total Price</th>
 										<th scope="col" class="text-center">Quantity</th>
 										<th scope="col" class="text-center">Date Purchase</th>

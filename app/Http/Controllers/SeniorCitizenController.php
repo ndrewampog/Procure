@@ -653,7 +653,7 @@ $current = Carbon::now()->toDateString();
 
         $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
 
-
+        
 
         return view('page.SeniorCitizen.sc-list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range'));
     }   

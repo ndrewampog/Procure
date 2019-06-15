@@ -29,7 +29,7 @@
 			<p>{!! $medicine->medicine_description !!}</p> 
 
 			<div class="container mt-5">
-				{!! Form::open(array('url' => '/Normal-User/add-to-cart', 'files'=>true  ))!!}
+				{!! Form::open(array('url' => '/PWD/add-to-cart', 'files'=>true  ))!!}
 				{!! Form::hidden('medicine_id',$medicine->medicine_id) !!}
 				{!! Form::hidden('user_id',Auth::user()->id) !!}
 				{!! Form::hidden('medicine_price',$medicine->medicine_price) !!}

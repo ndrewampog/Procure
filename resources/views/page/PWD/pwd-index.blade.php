@@ -24,7 +24,7 @@
         </div>
         <div class="modal-body">
           <div class="md-12">
-            {!! Form::open(array('url' => '/Normal-User/use-register-location', 'files'=>true  ))!!}
+            {!! Form::open(array('url' => '/PWD/use-register-location', 'files'=>true  ))!!}
             {!!Form::submit('Use The Register Location',['class'=>' nav-link btn btn-primary btn-lg btn-block ']) !!}
             {!! Form::close() !!}
           </div>

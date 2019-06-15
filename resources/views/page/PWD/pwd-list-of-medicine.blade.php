@@ -15,7 +15,7 @@
 			<div class="card mb-4">
 				<h5 class="card-header">Search</h5>
 				<div class="card-body">
-						{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-brands', 'files'=>true  ))!!}
+						{!! Form::open(array('url' => '/PWD/list-of-searched-medicine-brands', 'files'=>true  ))!!}
 
 					<div class="input-group">
 						<input type="text" class="form-control" name="searchproduct" placeholder="Search for...">

@@ -133,3 +133,10 @@ Route::post('/SeniorCitizen/list-of-searched-medicine-brand','SeniorCitizenContr
 Route::get('/SeniorCitizen/nearest-pharmacy','SeniorCitizenController@SeniorCitizennearestPharmacy');
 Route::get('/SeniorCitizen/cheaper-nearest-medicine','SeniorCitizenController@SeniorCitizencheaperMedicine');
 Route::get('/SeniorCitizen/branded-nearest-medicine','SeniorCitizenController@SeniorCitizenbrandedMedicine');
+
+
+
+
+/*Courier*/
+
+Route::get('/Courier/index','CourierController@indexCourier');

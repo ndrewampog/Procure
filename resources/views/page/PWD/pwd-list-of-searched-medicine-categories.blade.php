@@ -26,7 +26,7 @@
 			<div class="card my-4">
 				<h5 class="card-header">Categories</h5>
 				<div class="card-body">
-					{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-categories', 'files'=>true  ))!!}
+					{!! Form::open(array('url' => '/PWD/list-of-searched-medicine-categories', 'files'=>true  ))!!}
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Select Category</label>
 						<select class="form-control" name="search_category" id="exampleFormControlSelect1">

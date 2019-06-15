@@ -43,6 +43,9 @@ class LoginController extends Controller
                 elseif (Auth::user()->role == 'Senior Citizen'){
                     return Redirect::intended('/SeniorCitizen/index');
                 }
+                elseif (Auth::user()->role == 'Courier'){
+                    return Redirect::intended('/Courier/index');
+                }
             }else{
                 return Redirect::to('/')->with('message', 'Please Verify your email!');
             }
