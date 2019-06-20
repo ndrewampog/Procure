@@ -34,6 +34,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="div2">
+							<b>&nbsp;&nbsp;&nbsp;Item Details</b>
 						</div>
 						<div class="div3">
 							<b>Price</b>

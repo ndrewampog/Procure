@@ -34,6 +34,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="div2">
+							<b>&nbsp;&nbsp;&nbsp;Item Details</b>
 						</div>
 						<div class="div3">
 							<b>Price</b>
@@ -96,6 +97,7 @@
 									<p class="text-left">
 										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item )</h5>
 									</p>
+									{!! Form::hidden('historycart_total_item',$totalquant) !!}
 								</td>
 								<td>
 									<p class="text-right">
