@@ -54,6 +54,8 @@
 			<br>
 			@php
 			$totalprice = 0;
+			$subtotalquant = 0;
+			$subtotal =0 ;
 			
 
 			@endphp
