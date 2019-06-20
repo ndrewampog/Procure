@@ -54,7 +54,7 @@ Route::get('/Normal-User/history-purchase-list','NormalUserController@userhistor
 Route::get('/Normal-User/history-view-purchase-information/{id}','NormalUserController@userhistoryPurchaseInfo');
 Route::post('/Normal-User/cancel-purchase/{id}','NormalUserController@userhistoryPurchasecancel');
 Route::get('/Normal-User/view-history-for-repurchase-information/{id}','NormalUserController@userhistoryForRePurchaseInfo');
-
+Route::get('/Normal-User/checkout','NormalUserController@checkOut');
 Route::post('/Normal-User/list-of-searched-medicine-brand','NormalUserController@MedicineSearch');
 
 

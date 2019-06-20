@@ -3,12 +3,13 @@
 @section('contents')    <!-- Page Content -->
 
 
+</style>
 <!-- Page Content -->
 <div class="container">
 
 	<!-- Page Heading/Breadcrumbs -->
 	<h1 class="mt-4 mb-3">Shopping
-		<small>Subheading</small>
+		
 	</h1>
 	<div class="row">
 		<div class="col-md-4">
@@ -78,9 +79,9 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div class="row">
+			<div class="row ">
 				@foreach($medicines as $medicine)
-				<div class="col-md-4">
+				<div class="card col-md-4">
 					<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
 					<div class="card-footer text-muted">
 						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a>

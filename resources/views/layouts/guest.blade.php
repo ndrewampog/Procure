@@ -43,7 +43,10 @@
             <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#registration">Registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#at-login">Sign in</a>
+            <a class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#at-login">Sign in</a>
+
+
+
           </li>
         </ul>
       </div>
@@ -94,7 +97,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Select User Type</h5>
+          <h5 class="modal-title">Select a User to Register</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
