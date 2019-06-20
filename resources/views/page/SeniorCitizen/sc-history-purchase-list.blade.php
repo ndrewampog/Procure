@@ -48,7 +48,7 @@
 										<td class="text-center">{!! $cart->historycart_total_item !!}</td>
 										<td class="text-center">{!! $cart->created_at !!}</td>
 										<td class="text-center">
-											<a href="/Normal-User/history-view-purchase-information/{!! $cart->historycart_id !!}"><button type="button" class="btn btn-primary btn-sm">View</button></a>
+											<a href="/SeniorCitizen/history-view-purchase-information/{!! $cart->historycart_id !!}"><button type="button" class="btn btn-primary btn-sm">View</button></a>
 											{!! Form::open(array('url' => '/Normal-User/cancel-purchase/'.$cart->historycart_id))!!}
 											{!! Form::submit('Cancel Order',['class' => 'btn btn-primary btn-sm', 'onclick'=>'return confirm(\'Do you want to cancel this order?\')']) !!} 
 											{!! Form::close() !!}

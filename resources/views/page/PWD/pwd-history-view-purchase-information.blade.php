@@ -46,7 +46,7 @@
 			</div><br>
 			@php
 			$totalprice = 0;
-
+			$historyitem_quantity = 0;
 			@endphp
 			@foreach($items as $item)
 			<div class="card">
@@ -59,13 +59,14 @@
 							</p>
 						</div>
 						<div class="div3">
-							&#8369; {!! $item->medicineHistoryList->medicine_price !!}
+							&#8369; {!! $item->historyitem_price !!}
 						</div>
 						<div class="div4">
-							{!! $item->medicineHistoryList->medicine_quantity !!}
+							{!! $item->historyitem_quantity !!}
 							@php
-							$value =  $item->medicineHistoryList->medicine_price  * $item->medicineHistoryList->medicine_quantity;
+							$value =  $item->historyitem_price  * $item->historyitem_quantity;
 							$totalprice+=$value;
+							$subtotal = $totalprice * ((100-20) / 100);
 							@endphp
 						</div>
 					</div>
@@ -75,12 +76,18 @@
 		</div>
 
 			@php
-			$totalquant = 0;
+			$totalquant = 0 ;
 			@endphp
 			@foreach($items as $item)
 			@php
-			$quant =  $item->medicineHistoryList->medicine_quantity + 0;
-			$totalquant+=$quant;
+			$quant =  $item->medicine_quantity + 0;
+			$totalquant+=$quant ;
+
+
+			$subtotalquant = (20 / 100)* $totalprice ;
+
+			
+			
 			@endphp
 
 			@endforeach
@@ -93,7 +100,7 @@
 							<tr>
 								<td colspan="3">
 									<p class="text-left">
-										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item )</h5>
+										<h5>Subtotal ( @php echo "$item->historyitem_quantity"; @endphp Item )</h5>
 									</p>
 								</td>
 								<td>
@@ -106,6 +113,32 @@
 									</p>
 								</td>
 							</tr>
+
+							<tr>
+								<td colspan="3">
+									<p class="text-left">
+										<h5>Discount (
+										@php
+										echo number_format((float)$subtotalquant, 2, '.', '');
+										@endphp )
+									</h5>
+									</p>
+
+
+
+									{!! Form::hidden('historycart_total_item',$totalquant) !!}
+								</td>
+								<td><p class="text-right">
+									<h5>
+										@php
+										echo number_format((float)$subtotal, 2, '.', '');
+										@endphp
+									</h5>
+								</p>
+							</td>
+							</tr>
+
+
 							<tr>
 								<td colspan="3"><p class="text-left"><h5>Shipping Fee</h5></p></td>
 								<td>
@@ -126,7 +159,7 @@
 									<p class="text-right">
 										<h5>	
 											@php
-											$overall_total = $totalprice + $total_fee;	
+											$overall_total = $totalprice + $total_fee - $subtotalquant;	
 											echo"&#8369;$overall_total";
 											@endphp	
 										</h5>

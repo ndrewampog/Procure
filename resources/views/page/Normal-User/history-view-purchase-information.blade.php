@@ -12,10 +12,10 @@
 		width: 100%;
 	} 
 	.div2 {
-		width: 50%;
+		width: 60%;
 	} 
 	.div3 {
-		width: 20%;
+		width: 30%;
 	} 
 	.div4 {
 		width: 10%;
@@ -46,6 +46,7 @@
 			</div><br>
 			@php
 			$totalprice = 0;
+			$historyitem_quantity = 0;
 
 			@endphp
 			@foreach($items as $item)
@@ -59,12 +60,12 @@
 							</p>
 						</div>
 						<div class="div3">
-							&#8369; {!! $item->medicineHistoryList->medicine_price !!}
+							&#8369; {!! $item->historyitem_price !!}
 						</div>
 						<div class="div4">
-							{!! $item->medicineHistoryList->medicine_quantity !!}
+							{!! $item->historyitem_quantity !!}
 							@php
-							$value =  $item->medicineHistoryList->medicine_price  * $item->medicineHistoryList->medicine_quantity;
+							$value =  $item->historyitem_price  * $item->historyitem_quantity;
 							$totalprice+=$value;
 							@endphp
 						</div>
@@ -79,7 +80,7 @@
 			@endphp
 			@foreach($items as $item)
 			@php
-			$quant =  $item->medicineHistoryList->medicine_quantity + 0;
+			$quant =  $item->$historyitem_quantity + 0;
 			$totalquant+=$quant;
 			@endphp
 
@@ -144,3 +145,6 @@
 
 
 @endsection
+
+
+

@@ -28,15 +28,15 @@
         @endif
 				@foreach($medicines as $medicine)
 				<div class="col-md-4">
-					<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
+					<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
 					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a>
+						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a>
 					</div>
 					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a>
+						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a>
 					</div>
 					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a>
+						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a>
 					</div>
 				</div>
 				@endforeach

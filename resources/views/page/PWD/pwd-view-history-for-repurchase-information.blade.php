@@ -27,7 +27,7 @@ img {
 
 
 <div class="container">
-	{!! Form::open(array('url' => '/Normal-User/repurchase-your-order', 'files'=>true  ))!!}
+	{!! Form::open(array('url' => '/PWD/repurchase-your-order', 'files'=>true  ))!!}
 	<h2 class="my-4">Re-Purchase Cart</h2>
 	<div class="row">
 		<div class="col-lg-8">

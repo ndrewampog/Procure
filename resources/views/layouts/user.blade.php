@@ -164,7 +164,7 @@
             <a class="nav-link" href="/PWD/history-purchase-list">History</a>
           </li>
           <li class="nav-item">
-            {!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-brand','files'=>true)) !!}
+            {!! Form::open(array('url' => '/PWD/list-of-searched-medicine-brand','files'=>true)) !!}
 
           <div class="input-group">
             <input type="text" class="form-control" name="search_medicine" placeholder="Search for...">
@@ -255,7 +255,7 @@
             <a class="nav-link" href="/SeniorCitizen/history-purchase-list">History</a>
           </li>
           <li class="nav-item">
-            {!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-brand','files'=>true)) !!}
+            {!! Form::open(array('url' => '/SeniorCitizen/list-of-searched-medicine-brand','files'=>true)) !!}
 
           <div class="input-group">
             <input type="text" class="form-control" name="search_medicine" placeholder="Search for...">

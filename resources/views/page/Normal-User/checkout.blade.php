@@ -41,7 +41,7 @@
 
         </div>
       </div>
-    </div>
+    
  
 <hr>
 <div class="container">
@@ -176,10 +176,10 @@
       <button class="btn btn-danger btn-block">PLACE ORDER</button>
     </div>
  </div>
- 
+ </div>
 @endsection
 
-
+</div>
 
 <!--   <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Sample

@@ -700,7 +700,7 @@ $current = Carbon::now()->toDateString();
         $search = Input::get ( 'search_medicine' );
         $medicines = Medicine::where ( 'medicine_brand_name', 'LIKE', '%' . $search . '%' )->orWhere ( 'medicine_generic_name', 'LIKE', '%' . $search . '%' )->paginate(6);
 
-    return view('page.Normal-User.list-of-searched-medicine-brand',compact('medicines'));
+    return view('page.SeniorCitizen.sc-list-of-searched-medicine-brand',compact('medicines'));
 
     }   
 
