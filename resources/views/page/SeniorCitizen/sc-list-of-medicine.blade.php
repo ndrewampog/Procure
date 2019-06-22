@@ -2,67 +2,56 @@
 
 @section('contents')    <!-- Page Content -->
 
+<style type="text/css">
+	a {
+    text-decoration: none !important;
+}
 
+.card {
+ margin: 0px 0px 0px 0px;
+}
+
+p{
+	font-size: 13px;
+}
+
+
+
+
+</style>
 <!-- Page Content -->
 <div class="container">
 
 	<!-- Page Heading/Breadcrumbs -->
-	<h1 class="mt-4 mb-3">Shopping
-		<small>Subheading</small>
-	</h1>
+	<h1 class="mt-4 mb-3">Shopping</h1>
+			
 	<div class="row">
-		<div class="col-md-4">
-			<div class="card mb-4">
-				<h5 class="card-header">Search</h5>
-				<div class="card-body">
-						{!! Form::open(array('url' => '/SeniorCitizen/list-of-searched-medicine-brands', 'files'=>true  ))!!}
+		<div class="col-md-3">
 
-					<div class="input-group">
-						<input type="text" class="form-control" name="searchproduct" placeholder="Search for...">
-						<span class="input-group-btn">
-							<button class="btn btn-secondary" type="submit">Go!</button>
-						</span>
-					</div>
-				</div>
-			</div>
-			{!! Form::close() !!}
+			<div class="card ">
 
-
-
-
-
-
-			<div class="card my-4">
-				<h5 class="card-header">Categories</h5>
-				<div class="card-body">
-					{!! Form::open(array('url' => '/SeniorCitizen/list-of-searched-medicine-categories', 'files'=>true  ))!!}
+				<div style="margin-right: 0px" class="card-body">
+					{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-categories', 'files'=>true  ))!!}
 					<div class="form-group">
 						<label >Select Category</label>
 						<select class="form-control" name="search_category">
 							
 							<option value="select_all">Select All</option>
 							@foreach($categories as $category)
-
 							<option value="{{ $category->medicine_category }}">{{ $category->medicine_category }}</option>
-
-
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label >Select Type</label><br>
-						<div class="col-md-6">
-					<button type="button" class="btn btn-primary">Allergy</button><br>
-					<button type="button" class="btn btn-primary">Body Pain</button><br>
-					<button type="button" class="btn btn-primary">Children's Health</button><br>
-					<button type="button" class="btn btn-primary">Cough & Colds</button><br>
+						<div class="col-md-12">
+					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
+					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>
+					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Children's Health</button>
+					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Cough & Colds</button>
 					</div>					
 				</div>
-
-
-
-
 
 					<div class="form-group">
 						<label >Select Range</label>
@@ -77,28 +66,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<div class="row">
 				@foreach($medicines as $medicine)
-				<div class="col-md-4">
+				<div class="col-md-4 card ">
 					<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
-					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a>
-					</div>
-					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a>
-					</div>
-					<div class="card-footer text-muted">
-						<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a>
-					</div>
+					<p> <b><a style="color: #212529 "  href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a><br>
+				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_generic_name !!}</a><br>
+				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a></b></p>
+				
+				</b></p>
+
+
+				<p align="right"><a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a></p>
+
+
+
 				</div>
 				@endforeach
-			</div>
-			 <div class = "col-md-12">
-                        {!! $medicines->render() !!}
+
+			 <div class = "col-md-12" style="text-align: center">
+                        <center>{!! $medicines->render() !!}</center>
                     </div>
 		</div>
 	</div>
+</div>
+
 </div>
 <script>
 	var slider = document.getElementById("myRange");
