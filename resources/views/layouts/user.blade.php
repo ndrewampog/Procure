@@ -33,7 +33,7 @@
         <ul class="navbar-nav ml-auto">
           @if(Auth::user()->role == "Admin" )
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Users</a>
+            <a class="nav-link text-dark" href="/Administrator/category-approval">Category</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark" href="/Administrator/list-of-clients">Clients</a>
@@ -437,12 +437,14 @@
     var button = $(event.relatedTarget) 
     var price = button.data('myprice') 
     var quantity = button.data('myquantity') 
-    var mid_id = button.data('myid') 
+    var mid_id = button.data('myid')
+    var med_cat = button.data('md_cat'); 
     var modal = $(this)
 
     modal.find('.modal-body #pri').val(price);
     modal.find('.modal-body #quan').val(quantity);
     modal.find('.modal-body #mid_id').val(mid_id);
+    modal.find('.modal-body #med_category').val(med_cat);
   })
 </script>
 

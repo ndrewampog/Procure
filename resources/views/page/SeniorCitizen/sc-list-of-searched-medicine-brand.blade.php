@@ -27,17 +27,19 @@
         </div>
         @endif
 				@foreach($medicines as $medicine)
-				<div class="col-md-4">
-					<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
-					<div class="card-footer text-muted">
-						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a>
-					</div>
-					<div class="card-footer text-muted">
-						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a>
-					</div>
-					<div class="card-footer text-muted">
-						<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a>
-					</div>
+				<div class="col-md-4 card ">
+					<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
+					<p> <b><a style="color: #212529 "  href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a><br>
+				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_generic_name !!}</a><br>
+				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a></b></p>
+				
+				</b></p>
+
+
+				<p align="right"><a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a></p>
+
+
+
 				</div>
 				@endforeach
 			</div>

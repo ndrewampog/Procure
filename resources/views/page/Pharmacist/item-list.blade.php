@@ -1,6 +1,19 @@
 @extends('layouts.user')
 
 @section('contents')
+
+<style type="text/css">
+	
+	label{
+
+		font-size: 13px;
+
+
+	}
+
+
+</style>
+
 <div class="container"><br><br>
 	<div class="row">
 		
@@ -33,7 +46,7 @@
 				<th class="text-center" scope="col">Medicine Brand Name</th>
 				<th class="text-center" scope="col">Medicine Price</th>
 				<th class="text-center" scope="col">Quantity</th>
-				<th class="text-center" scope="col">Stocks</th>
+				<th class="text-center" scope="col">Generic Name</th>
 				<th class="text-center" scope="col">Actions</th>
 			</tr>
 		</thead>
@@ -62,7 +75,8 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Upload your images</h5>
+				
+				<h5 class="modal-title">Edit Medicine Information</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			{!! Form::open(array('url' => '/Pharmacist/update-medicine', 'files'=>true  ))!!}
@@ -71,11 +85,11 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label">Profile Image:</label>
+							<label class="control-label">Medicine Image:</label>
 							{!! Form::file('medicine_image',['class'=>'form‐control','id'=>'medicine_image'  ]) !!}
 						</div> 
 						<div class="form-group">
-							<img id="image" src="" name="medicine_image"  class="img-fluid" alt=" Your Image" />
+							<img id="image" src="" name="medicine_image"  class="img-fluid"  />
 						</div>  
 					</div>
 					<div class="col-md-6">
@@ -89,18 +103,50 @@
 							<label for="recipient-name" class="control-label">Medicine Quantity :</label>
 							<input type="text" class="form-control" name="medicine_quantity" id="quan">
 						</div>
-						<div class="dropdown">
 
-						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						Medicine Category
-  						</button>
-  						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-   								 <button class="dropdown-item" type="button">Allergy</button>
-   								 <button class="dropdown-item" type="button">Body Pain</button>
-   								 <button class="dropdown-item" type="button">Children's Health</button>
-   								 <button class="dropdown-item" type="button">Cough & Colds</button>
-  								</div>								
-						</div>						
+						<div class="form-group">
+							<input type="hidden" name="category_id" id="med_cat">
+							<label for="recipient-name" class="control-label">Medicine Category :</label>
+							<input type="text" class="form-control" name="category_name" id="med_category">
+						</div>
+
+
+
+							
+							<div class="form-group">
+
+
+							  <label for="sel1">Select Category:</label>
+							  <input type="hidden" name="category_id" id="med_cat">
+							  <select class="form-control" name="category_name" id="med_category">
+							    <option value={{}}>1</option>
+
+							  </select>
+							</div>
+							
+					
+ 							  <a class="far fa-plus-square"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+   								 
+  								</a>
+
+							<div class="collapse" id="collapseExample">
+	  						<div class="card card-body">
+
+ 								<div class="form-group">
+ 								 
+ 								 <small id="emailHelp" class="form-text text-muted">Request an Addition of Category. </small>
+ 								 <textarea class="form-control" rows="1" id="comment"></textarea><br>
+ 								 <small id="emailHelp" class="form-text text-muted">Special Characters are not Available e.g &,"",/ .etc</small>
+ 								 <input type="text" class="form-control" name="category_name" placeholder="Category Name"><br>	
+ 								 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+								</div> 	
+													
+								
+	 						 </div>
+							</div>	 						
+							
+						
+										
 					</div>
 				</div>
 			</div>

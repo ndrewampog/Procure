@@ -42,6 +42,29 @@ public function indexAdmin()
 
         return redirect('/Administrator/Registration-Decline/');
     }
+    public function ApprovalofCategories(){
+
+        return view('page.Administrator.category-approval');
+    }
+
+    public function CategoryApproval(Request $request, $id){
+        $a = User::find($id);
+        // where user is pharmacist
+        $a->status  = 'Approved';
+        $a->save();
+
+        return redirect('/Administrator/category-approval/');
+
+    }
+        public function CategoryDecline(Request $request, $id){
+        $a = User::find($id);
+        // where user is pharmacist
+        $a->status  = 'Approved';
+        $a->save();
+
+        return redirect('/Administrator/category-approval/');
+
+    }
 
 
 }

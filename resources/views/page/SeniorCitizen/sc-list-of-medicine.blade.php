@@ -33,18 +33,18 @@ p{
 				<div style="margin-right: 0px" class="card-body">
 					{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-categories', 'files'=>true  ))!!}
 					<div class="form-group">
-						<label >Select Category</label>
+						<label >Select Type</label>
 						<select class="form-control" name="search_category">
 							
 							<option value="select_all">Select All</option>
 							@foreach($categories as $category)
-							<option value="{{ $category->medicine_category }}">{{ $category->medicine_category }}</option>
+							<option value="{{ $category->medicine_type }}">{{ $category->medicine_type }}</option>
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label >Select Type</label><br>
+						<label >Select Category</label><br>
 						<div class="col-md-12">
 					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
 					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>

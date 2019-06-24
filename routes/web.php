@@ -32,6 +32,8 @@ Route::get('/Administrator/index','AdministratorController@indexAdmin');
 Route::get('/Administrator/list-of-clients','AdministratorController@listOfClients');
 Route::post('/Administrator/Registration-Approval/{id}','AdministratorController@PharmacyRegistrationApproval');
 Route::post('/Administrator/Registration-Decline/{id}','AdministratorController@PharmacyRegistrationDecline');
+Route::get('/Administrator/category-approval','AdministratorController@ApprovalofCategories');
+
 
 /*Normal User*/
 Route::get('/Normal-User/index','NormalUserController@indexUser');

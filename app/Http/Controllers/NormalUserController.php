@@ -574,7 +574,7 @@ $current = Carbon::now()->toDateString();
             }
         }
         $medicines = Medicine::whereIn('user_id',$med_loc)->paginate(6);
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
+        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
 
 
 
@@ -648,10 +648,10 @@ $current = Carbon::now()->toDateString();
         if ($search_category == 'select_all') {
             $medicines = Medicine::all();
         }else{
-            $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_category','=',$search_category)->get();
+            $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_type','=',$search_category)->get();
         }
 
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
+        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
 
 
 
