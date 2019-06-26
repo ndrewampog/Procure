@@ -77,6 +77,10 @@ Route::get('/Pharmacist/update-csv','PharmacistController@PharmaupdateList');
 Route::get('/Pharmacist/item-information/{id}','PharmacistController@PharmaitemInfo');
 Route::get('/Pharmacist/sale-history','PharmacistController@PharmasalesHistory');
 
+
+Route::get('/Pharmacist/update-item-list/{id}','PharmacistController@UpdatePharmaitemList');
+Route::post('/Pharmacist/store-item-list/{id}','PharmacistController@StorePharmaitemList');
+
 /*PWD*/
 Route::get('/PWD/index','PWDController@indexPWD');
 Route::post('/PWD/use-register-location','PWDController@PWDuseregloc');

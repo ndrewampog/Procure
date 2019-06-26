@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 use Illuminate\Http\Request;
 use App\Medicine;
 use App\MedicineImage;
-use App\Category;
+use App\Categories;
 use Auth;
 use Redirect;
 
@@ -31,8 +31,35 @@ class PharmacistController extends Controller
     {
       $medicines = Medicine::where('user_id','=',Auth::User()->id)->get();
 
-      return view('page.Pharmacist.item-list',compact('medicines'));
+
+      $category = \App\Categories::where('category_status','=','Approved')->get();
+
+      return view('page.Pharmacist.store-item-list',compact('medicines','category'));
   }
+
+    public function UpdatePharmaitemList($id)
+    { 
+        
+        $medicine = Medicine::find($id);
+        $category = Categories::where('category_status','=','Approved')->get(); 
+
+            
+      return view('page.Pharmacist.update-item-list',compact('medicine','category'));
+  }
+
+      public function StorePharmaitemList(Request $request,$id)
+    { 
+        
+        $a = Medicine::find($id);
+
+        $a->category_id = $request['category_id']; 
+
+        $a->save();
+            
+      return Redirect('/Pharmacist/item-list');
+  }
+  
+
 
   public function PharmaaddList(Request $request)
   {
@@ -62,6 +89,7 @@ class PharmacistController extends Controller
                 }
                 if(!empty($product_list)){
                     Medicine::insert($product_list);
+
                     \Session::flash('success','File imported successfully.');
                 }
             }
@@ -69,7 +97,8 @@ class PharmacistController extends Controller
             \Session::flash('warning','There is no file to import');
         }
 
-   
+        
+
         return Redirect::back();
     }
 
@@ -92,27 +121,26 @@ class PharmacistController extends Controller
 
 
         $a = Medicine::findOrFail($request->medicine_id);
-        $b = \App\Category::findOrFail($request->category_id);
-       
+
 
         $medicine_image = RequestFacade::file('medicine_image');
         $destination_path = 'Medicine/';
         $filename = str_random(6).'_'.$medicine_image->getClientOriginalName();
         $medicine_image->move($destination_path, $filename);
         $a->medicine_image = $destination_path . $filename;  
-
-        $a->medicine_brand_name    = $request['medicine_brand_name'];
+  
         $a->medicine_price         = $request['medicine_price'];
         $a->medicine_quantity     = $request['medicine_quantity'];
-        $b->category_name         = $request['category_name'];
+
       
         $a->save();
-        $b->category_id = $medicines->medicine_id; 
-        $b->save();
+
+        // $category = \App\Category::where('category_status','=','Approved')->get();
 
 
         return back();
-    }/*
+    }
+    /*
 
 
 
@@ -148,8 +176,9 @@ class PharmacistController extends Controller
 
     public function PharmasalesList()
     {   
-         $b = \App\Category::all();
-         $c = \App\Category::where('category_status','=','Approved')->get();
+         $b = \App\Categories::all();
+         // $c = \App\Category::where('category_status','=','Approved')->get();
+         $c = Medicine::where('category_id','=','1')->get();
          dd($c);
         return view('page.Pharmacist.sales-list');
     }

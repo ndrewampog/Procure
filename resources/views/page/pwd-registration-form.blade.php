@@ -72,7 +72,7 @@
                                     <label class="control-label">Contact No. :</label>
                                     <div class="input-group">
                                         <div class="input-group-btn">
-                                            {!! Form::select('code', array('ph' => '+ 63', 'jpn' => '+ 81','kor' => '+ 82'), null, array('class'=>'btn btn-primary','type'=>'button' )) !!}
+                                            {!! Form::select('code', array('ph' => '+ 63'), null, array('class'=>'btn btn-primary','type'=>'button' )) !!}
                                         </div>
                                         {!! Form::text('contact',null,['class'=>'form-control','maxlength' => '10','placeholder'=>'Enter contact number']) !!}
                                     </div>

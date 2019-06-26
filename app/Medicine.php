@@ -13,7 +13,7 @@ class Medicine extends Model
         return $this->hasOne('App\User','id','user_id');
     }
 	public function medicineCategoryList(){
-		return $this->hasOne('App\Medicine','medicine_id','medicine_id');
+		return $this->hasOne('App\Categories','category_id','category_id');
 	}
 
 }

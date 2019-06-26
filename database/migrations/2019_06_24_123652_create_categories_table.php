@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
            $table->increments('category_id');
            $table->string('category_name')->nullable();
            $table->string('category_message')->nullable();
-           $table->string('category_status')->nullable();   
+           $table->enum('category_status',['Approved','Pending','Declined'])->nullable();   
         });    }
 
     /**
