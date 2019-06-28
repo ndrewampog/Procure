@@ -41,9 +41,16 @@
           <li class="nav-item">
             <a class="nav-link text-dark" href="#">Manage Accounts</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/Logout">Log Out</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="/Administrator/profile">Profile</a>
+              <a class="dropdown-item" href="/Logout">Log Out</a>
+            </div>
           </li>
+
           @endif
 
           @if(Auth::user()->role == "Pharmacist" )

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserInformation;
+use Auth;
 
 class AdministratorController extends Controller
 {
@@ -65,6 +66,28 @@ public function indexAdmin()
         return redirect('/Administrator/category-approval/');
 
     }
+    public function adminprofile(){
+
+        $user = User::find(Auth::User()->id);
+
+     return view('page.Administrator.profile', compact('user'));
+    }
+    public function adminprofileedit($id){
+        $user = User::find($id);
+        return view('page.Administrator.update-profile', compact('user'));
+    }
+    public function adminprofilestore(Request $request,$id){
+        $user = User::find($id);
+        $user->save();
+        $userinfo = UserInformation::find($request['user_info_id']);
+
+        $userinfo->lname  = $request['lname'];
+        $userinfo->fname  = $request['fname'];
+        $userinfo->mname  = $request['mname'];
+        $userinfo->save();
+        return redirect('/Administrator/profile');
+    }
+
 
 
 }

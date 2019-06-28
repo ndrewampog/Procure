@@ -33,6 +33,9 @@ Route::get('/Administrator/list-of-clients','AdministratorController@listOfClien
 Route::post('/Administrator/Registration-Approval/{id}','AdministratorController@PharmacyRegistrationApproval');
 Route::post('/Administrator/Registration-Decline/{id}','AdministratorController@PharmacyRegistrationDecline');
 Route::get('/Administrator/category-approval','AdministratorController@ApprovalofCategories');
+Route::get('/Administrator/profile/','AdministratorController@adminprofile');
+Route::get('/Administrator/update-profile/{id}','AdministratorController@adminprofileedit');
+Route::post('/Administrator/store-profile/{id}','AdministratorController@adminprofilestore');
 
 
 /*Normal User*/

@@ -57,11 +57,17 @@
 			
 				<th scope="row">{!! $medicine->medicine_id !!}</th>
 				<td>{!! $medicine->medicine_brand_name !!}</td>
-				@if($medicine->category_id == "NULL")
-				<td></td>
+				<td>
+				@foreach($category as $cat)
+					
+				@if($medicine->category_id == $cat->category_id)
+
+				{!! $cat->category_name !!}
 				@else
-				<td>{!! $medicine->medicineCategoryList->category_name !!}</td>
+
 				@endif
+				@endforeach
+				</td>
 
 				<td>{!! $medicine->medicine_price !!}</td>
 				<td>{!! $medicine->medicine_quantity !!}</td>
@@ -74,6 +80,7 @@
 					
 					<a href="/Pharmacist/update-item-list/{!! $medicine->medicine_id !!}" class="btn btn-success btn-md">Update</a>
 					
+					
 				</td>
 			{!! Form::close() !!}
 			</tr>
@@ -81,6 +88,56 @@
 		</tbody>
 	</table>
 </div>
+
+
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				
+				<h5 class="modal-title">Edit Medicine Information</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			{!! Form::open(array('url' => '/Pharmacist/update-medicine', 'files'=>true  ))!!}
+			<div class="modal-body">
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label">Medicine Image:</label>
+							{!! Form::file('medicine_image',['class'=>'form‐control','id'=>'medicine_image'  ]) !!}
+						</div> 
+						<div class="form-group">
+							<img id="image" src="" name="medicine_image"  class="img-fluid"  />
+						</div>  
+					</div>
+					<div class="col-md-6">
+
+						<div class="form-group">
+							<input type="hidden" name="medicine_id" id="mid_id">
+							<label for="recipient-name" class="control-label">Medicine Price :</label>
+							<input type="text" class="form-control" name="medicine_price" id="pri">
+						</div>
+						<div class="form-group">
+							<label for="recipient-name" class="control-label">Medicine Quantity :</label>
+							<input type="text" class="form-control" name="medicine_quantity" id="quan">
+						</div>
+
+					</div>	 						
+							
+						
+										
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				{!!Form::submit('Upload',['class'=>'btn btn-success btn-lg']) !!}
+			</div>
+			{!! Form::close() !!}
+		</div>
 
 
 
