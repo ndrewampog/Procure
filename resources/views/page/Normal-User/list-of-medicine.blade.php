@@ -37,21 +37,27 @@ p{
 						<select class="form-control" name="search_category">
 							
 							<option value="select_all">Select All</option>
-							@foreach($categories as $category)
-							<option value="{{ $category->medicine_type }}">{{ $category->medicine_type }}</option>
+							@foreach($med_types as $type)
+							<option value="{{ $type->medicine_type }}">{{ $type->medicine_type }}</option>
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label >Select Category</label><br>
-						<div class="col-md-12">
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Children's Health</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Cough & Colds</button>
+
+						
+						
+							
+						<select class="custom-select">
+  						<option selected>Select a Category</option>
+  						@foreach($categories as $category)
+  						<option value="{{$category->category_id}}">{{$category->category_name}}</option>
+  						@endforeach
+						</select>
+						
+
 					</div>					
-				</div>
+				
 
 					<div class="form-group">
 						<label >Select Range</label>

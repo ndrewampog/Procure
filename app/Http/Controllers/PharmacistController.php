@@ -33,8 +33,9 @@ class PharmacistController extends Controller
 
 
       $category = \App\Categories::where('category_status','=','Approved')->get();
+      $category2= Categories::with('medicineCategoryList');
 
-      return view('page.Pharmacist.store-item-list',compact('medicines','category'));
+      return view('page.Pharmacist.store-item-list',compact('medicines','category','category2'));
   }
 
     public function UpdatePharmaitemList($id)
@@ -135,10 +136,13 @@ class PharmacistController extends Controller
       
         $a->save();
 
-        // $category = \App\Category::where('category_status','=','Approved')->get();
 
 
         return back();
+
+//         if ($request->hasFile('image')) {
+//     // your code here
+// }
     }
     /*
 

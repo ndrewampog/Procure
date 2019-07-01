@@ -9,7 +9,7 @@
 }
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAduhN6pm6-cX28I42kTxyLEKoLn_rX7-Q&libraries=places"type= "text/javascript">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8HxCRDmZUZ_bvLDr3nSPNafElph4A0HE&libraries=places"type= "text/javascript">
 </script>
 <br><br>
 <div class="container">

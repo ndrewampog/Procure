@@ -19,7 +19,7 @@
 			<h3 class="my-3">Details</h3>
 			<ul>
 				<li>Brand Generic name = {!!$medicine->medicine_generic_name!!}</li>
-				<li>Medicine Category = {!!$medicine->medicine_category!!}</li> 
+				<li>Medicine Type = {!!$medicine->medicine_type!!}</li> 
 				<li>Medicine Volume = {!!$medicine->medicine_volume!!}</li>
 				<li>Stocks = {!!$medicine->medicine_quantity!!}</li>
 				<li>Price = &#8369;{!!$medicine->medicine_price!!}</li>

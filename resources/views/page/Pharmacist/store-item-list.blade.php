@@ -58,15 +58,24 @@
 				<th scope="row">{!! $medicine->medicine_id !!}</th>
 				<td>{!! $medicine->medicine_brand_name !!}</td>
 				<td>
-				@foreach($category as $cat)
+				
 					
-				@if($medicine->category_id == $cat->category_id)
+				@if(is_null($medicine->category_id))
 
-				{!! $cat->category_name !!}
+					<a href="/Pharmacist/update-item-list/{!! $medicine->medicine_id !!}" class="btn btn-success btn-block">Add Category</a>				
+
+				
 				@else
+				@foreach($category as $cat)
+					@if($medicine->category_id == $cat->category_id)
+
+							{!! $cat->category_name !!}&nbsp;&nbsp;<a href="/Pharmacist/update-item-list/{!! $medicine->medicine_id !!}" class="far fa-edit"></a>
+					@else
+					@endif
+				@endforeach
 
 				@endif
-				@endforeach
+				
 				</td>
 
 				<td>{!! $medicine->medicine_price !!}</td>
@@ -75,10 +84,10 @@
 				<td class="text-center">
 
 					<a href="/Pharmacist/item-information/{!! $medicine->medicine_id !!}"><i class="far fa-eye"></i></a>
+					<a href="#" data-myid="{!! $medicine->medicine_id !!}" data-myprice="{!! $medicine->medicine_price !!}" data-myquantity="{!! $medicine->medicine_quantity !!}"   data-toggle="modal" data-target="#edit" data-whatever="@mdo"><i class="far fa-edit"></i></a>
 					
 					<a href="#" data-toggle="modal" data-target="#at-login"><i class="far fa-trash-alt"></i></a>
 					
-					<a href="/Pharmacist/update-item-list/{!! $medicine->medicine_id !!}" class="btn btn-success btn-md">Update</a>
 					
 					
 				</td>
@@ -123,11 +132,7 @@
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">Medicine Quantity :</label>
 							<input type="text" class="form-control" name="medicine_quantity" id="quan">
-						</div>
-
-					</div>	 						
-							
-						
+						</div>						
 										
 					</div>
 				</div>
@@ -138,12 +143,6 @@
 			</div>
 			{!! Form::close() !!}
 		</div>
-
-
-
-
-
-
 	</div>
 </div>
 

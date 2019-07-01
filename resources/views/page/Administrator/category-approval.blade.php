@@ -23,11 +23,23 @@
 			</tr>
 		</thead>
 		<tbody>
-
+			@foreach($categories as $category)
 			<tr>
 
 				<td>
-
+					Pharmacy Name
+				</td>
+				<td>
+					{!! $category->category_name !!}
+				</td>
+				<td>
+				 	Message Here	
+				</td>
+				<td>
+					Data Here	
+				</td>
+				<td>
+					
 				</td>
 
 
@@ -35,7 +47,7 @@
 				</td>  
 
 			</tr>
-
+			@endforeach
 
 		</tbody>
 	</table>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserInformation;
+use App\Categories;
 use Auth;
 
 class AdministratorController extends Controller
@@ -33,7 +34,7 @@ public function indexAdmin()
         $a->status  = 'Approved';
         $a->save();
 
-        return redirect('/Administrator/Registration-Approval/');
+        return redirect('/Administrator/list-of-clients/');
     }
     public function PharmacyRegistrationDecline(Request $request, $id)
     {
@@ -41,7 +42,7 @@ public function indexAdmin()
         $a->status = 'Declined';
         $a->save();
 
-        return redirect('/Administrator/Registration-Decline/');
+        return redirect('/Administrator/list-of-clients/');
     }
     public function ApprovalofCategories(){
 
@@ -86,6 +87,13 @@ public function indexAdmin()
         $userinfo->mname  = $request['mname'];
         $userinfo->save();
         return redirect('/Administrator/profile');
+    }
+    public function listOfCategories()
+    {
+
+        $categories = Categories::where('category_status','=','Pending')->get();
+
+        return view('page.Administrator.category-approval', compact('categories'));
     }
 
 

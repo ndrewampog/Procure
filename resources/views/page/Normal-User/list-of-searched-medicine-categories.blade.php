@@ -34,21 +34,21 @@ p{
 					{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-categories', 'files'=>true  ))!!}
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Select type</label>
-						<select class="form-control" name="search_category" id="exampleFormControlSelect1">
+						<select class="form-control" name="search_types" id="exampleFormControlSelect1">
 							
 							<option value="select_all"
-								@if($search_category == 'select_all')
+								@if($search_types == 'select_all')
 								selected="selected"
 								@endif>
 								Select All
 							</option>
-							@foreach($categories as $category)
+							@foreach($med_types as $type)
 
-							<option value="{{ $category->medicine_type }}"
-								@if($category->medicine_type == $search_category)
+							<option value="{{ $type->medicine_type }}"
+								@if($type->medicine_type == $search_types)
 								selected="selected"
 								@endif>
-								{{ $category->medicine_type }} 
+								{{ $type->medicine_type }} 
 							</option>
 
 
@@ -58,14 +58,29 @@ p{
 					</div>
 
 					<div class="form-group">
-						<label >Select Category</label><br>
-						<div class="col-md-12">
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Children's Health</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Cough & Colds</button>
-					</div>					
-				</div>
+
+						
+						
+							
+						<select class="custom-select">
+
+							<option value="select_all"
+								@if($search_category == 'select_all')
+								selected="selected"
+								@endif>
+								Select All
+							</option>
+  						@foreach($categories as $category)
+  						<option value="{{$category->category_id}}" 
+  							@if($category->category_id == $search_category)
+								selected="selected"
+								@endif>
+								{{$category->category_name}}</option>
+  						@endforeach
+						</select>
+						
+
+					</div>	
 
 					<div class="form-group">
 						<label >Select Range</label>

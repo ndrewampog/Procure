@@ -14,6 +14,7 @@ use App\UserLocation;
 use App\Penaltize;
 use App\ShippingFee;
 use App\Notification;
+use App\Categories;
 use Auth;
 use Cookie;
 use Input;
@@ -574,18 +575,19 @@ $current = Carbon::now()->toDateString();
             }
         }
         $medicines = Medicine::whereIn('user_id',$med_loc)->paginate(6);
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $categories = Categories::where('category_status','=','Approved')->get();
 
 
 
-        return view('page.Normal-User.list-of-medicine',compact('medicines','categories'));
+        return view('page.Normal-User.list-of-medicine',compact('medicines','med_types','categories'));
     }   
 
     public function usersearchcategories(Request $request)
     {
 
 
-        $search_category =  $request['search_category'];
+        $search_types =  $request['search_types'];
         $search_range =  $request['search_range'];
         /*get all the pharmacist that status are approved*/
         $pharma = User::where('role', '=','Pharmacist')->where('status','=','Approved')->get();
@@ -645,17 +647,17 @@ $current = Carbon::now()->toDateString();
         }
 
 
-        if ($search_category == 'select_all') {
+        if ($search_types == 'select_all') {
             $medicines = Medicine::all();
-        }else{
-            $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_type','=',$search_category)->get();
+        }else {
+            $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_type','=',$search_types)->get();
         }
 
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $categories = Categories::where('category_status','=','Approved')->get();
 
 
-
-        return view('page.Normal-User.list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range'));
+        return view('page.Normal-User.list-of-searched-medicine-categories',compact('medicines','med_types','search_types','search_range','categories'));
     }   
 
 
