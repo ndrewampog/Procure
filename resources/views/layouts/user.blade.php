@@ -33,7 +33,7 @@
         <ul class="navbar-nav ml-auto">
           @if(Auth::user()->role == "Admin" )
           <li class="nav-item">
-            <a class="nav-link text-dark" href="/Administrator/category-approval">Category</a>
+            <a class="nav-link text-dark" href="/Administrator/list-of-categories">Category</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark" href="/Administrator/list-of-clients">Clients</a>

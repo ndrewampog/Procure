@@ -14,6 +14,7 @@ use App\UserLocation;
 use App\Penaltize;
 use App\ShippingFee;
 use App\Notification;
+use App\Categories;
 use Auth;
 use Cookie;
 use Input;
@@ -574,11 +575,12 @@ $current = Carbon::now()->toDateString();
             }
         }
         $medicines = Medicine::whereIn('user_id',$med_loc)->paginate(6);
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $categories = Categories::where('category_status','=','Approved')->get();
 
 
 
-        return view('page.PWD.pwd-list-of-medicine',compact('medicines','categories'));
+        return view('page.PWD.pwd-list-of-medicine',compact('medicines','categories','med_types'));
     }   
 
     public function PWDsearchcategories(Request $request)
@@ -650,12 +652,12 @@ $current = Carbon::now()->toDateString();
         }else{
             $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_category','=',$search_category)->get();
         }
+        $categories = Categories::where('category_status','=','Approved')->get();
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
 
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
 
 
-
-        return view('page.PWD.pwd-list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range'));
+        return view('page.PWD.pwd-list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range','med_types'));
     }   
 
 

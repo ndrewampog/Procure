@@ -15,9 +15,19 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
            $table->increments('category_id');
+           $table->integer('user_id')->unsigned();
            $table->string('category_name')->nullable();
            $table->string('category_message')->nullable();
-           $table->enum('category_status',['Approved','Pending','Declined'])->nullable();   
+           $table->enum('category_status',['Approved','Pending','Declined'])->nullable();
+
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+
+
+
         });    }
 
     /**

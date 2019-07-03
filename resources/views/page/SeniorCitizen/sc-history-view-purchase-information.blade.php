@@ -160,7 +160,7 @@
 										<h5>	
 											@php
 											$overall_total = $totalprice + $total_fee - $subtotalquant;	
-											echo"&#8369;$overall_total";
+											echo '&#8369;'.number_format((float)$overall_total, 2, '.', '');
 											@endphp	
 										</h5>
 									</p>

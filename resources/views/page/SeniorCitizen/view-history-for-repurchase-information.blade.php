@@ -170,7 +170,7 @@ img {
 										<h5>	
 											@php
 											$overall_total = $totalprice + $total_fee;	
-											echo"&#8369;$overall_total";
+											echo '&#8369;'.number_format((float)$overall_total, 2, '.', '');
 											@endphp	
 											{!! Form::hidden('historycart_total_prices',$overall_total) !!}
 										</h5>

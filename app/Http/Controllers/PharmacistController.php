@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Medicine;
 use App\MedicineImage;
 use App\Categories;
+use App\User;
+use Input;
 use Auth;
 use Redirect;
 
@@ -24,6 +26,31 @@ class PharmacistController extends Controller
 
         return view('page.Pharmacist.profile');
     }
+    public function RequestNewCategory()
+    {
+        return view('page.Pharmacist.request-new-category');
+    }
+
+    public function RequestNewCategorySave(Request $request)
+    {   
+
+        $category = new Categories;
+        $category->user_id = Auth::User()->id;
+
+
+        $category->category_name        = Input::get('category_name');
+        $category->category_message        = Input::get('category_message');
+        $category->category_status          =  'Pending';
+
+
+        $category->save();
+  
+
+
+
+        return redirect('/Pharmacist/request-new-category/');
+    }
+
 
 
 

@@ -5,8 +5,8 @@
 <div class="container">
 	<h2 class="my-4">List Of Category
 		<small>
-			<a href="#" data-toggle="modal" data-target="#at-login"><i class="fas fa-plus"></i></a>
-			<a href="#" data-toggle="modal" data-target="#at-login"><i class="fas fa-pen-square"></i></a>
+			<a href="/Administrator/add-new-category/" class="fas fa-plus">Add a new Category</a>
+
 		</small>
 	</h2>
 
@@ -27,19 +27,24 @@
 			<tr>
 
 				<td>
-					Pharmacy Name
+				{!!	$category->UserCategory->userinfo->pharma_name	!!}
 				</td>
 				<td>
 					{!! $category->category_name !!}
 				</td>
 				<td>
-				 	Message Here	
+				 	{!! $category->category_message !!}
 				</td>
 				<td>
-					Data Here	
+					{!! $category->created_at !!}	
 				</td>
 				<td>
-					
+					{{ Form::open(array('url' => '/Administrator/Category-Approval/'.$category->category_id))}}
+					{!! Form::submit('Approve',['class' => 'btn btn-success', 'onclick'=>'return confirm(\'Are you sure ?\')']) !!} 
+					{{ Form::close() }}
+					{!! Form::open(array('url' => '/Administrator/Category-Decline/'.$category->category_id))!!}
+					{!! Form::submit('Decline',['class' => 'btn btn-danger', 'onclick'=>'return confirm(\'Are you sure ?\')']) !!} 
+					{!! Form::close() !!} 
 				</td>
 
 

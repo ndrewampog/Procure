@@ -16,11 +16,8 @@
 
 <br><br>
 <div class="container">
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">Welecome
-    <small>to
-      <a href="/">Project Name</a>
-    </small>
+  <!-- Page Heading/Breadcrumbs --><br><br>
+  <h1 class="mt-4 mb-3">Welcome to ProCure
   </h1>
   <div class="row">
     <!-- Post Content Column -->

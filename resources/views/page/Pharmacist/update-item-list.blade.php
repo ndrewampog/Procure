@@ -7,9 +7,11 @@
 	label{
 
 		font-size: 13px;
-
-
 	}
+	a {
+    text-decoration: none !important;
+    color: #495057;
+}
 
 </style>
 
@@ -27,11 +29,11 @@
 				@endforeach
 
 				</select>
-
-
-			
+				<br>
 			{!!Form::submit('Upload',['class'=>'btn btn-success btn-lg']) !!}
-			{!! Form::close() !!}
+			{!! Form::close() !!}<br>
+
+		
 
 
 @endsection

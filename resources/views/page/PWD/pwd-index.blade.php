@@ -25,12 +25,12 @@
         <div class="modal-body">
           <div class="md-12">
             {!! Form::open(array('url' => '/PWD/use-register-location', 'files'=>true  ))!!}
-            {!!Form::submit('Use The Register Location',['class'=>' nav-link btn btn-primary btn-lg btn-block ']) !!}
+            {!!Form::submit('Home Address',['class'=>' nav-link btn btn-primary btn-lg btn-block ']) !!}
             {!! Form::close() !!}
           </div>
           <br>
           <div class="md-12">
-            <a class="nav-link btn btn-primary btn-lg btn-block " href="#" data-toggle="modal" data-target="#registration">Select Location</a>
+            <a class="nav-link btn btn-primary btn-lg btn-block " href="#" data-toggle="modal" data-target="#registration">Update Location</a>
           </div>
         </div>
       </div>

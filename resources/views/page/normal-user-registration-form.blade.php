@@ -17,10 +17,9 @@
 <br><br>
 <div class="container">
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Welcome
-        <small>to
-            <a href="/">Project Name</a>
-        </small>
+    <br><br>
+    <h1 class="mt-4 mb-3">Welcome to ProCure
+
     </h1>
     <div class="row">
         <!-- Post Content Column -->
@@ -42,8 +41,8 @@
                                 <div class="form-group">
                                     <label class="control-label">Gender: </label>
                                     <div class="input-group">
-                                        {!! Form::radio('gender', 'Male') !!} Male &nbsp&nbsp&nbsp
-                                        {!! Form::radio('gender', 'Female') !!} Female
+                                        {!! Form::radio('gender', 'Male') !!} &nbspMale &nbsp&nbsp&nbsp
+                                        {!! Form::radio('gender', 'Female') !!} &nbspFemale
                                     </div>
                                 </div>
                                 <div class="form-group">

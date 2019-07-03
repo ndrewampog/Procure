@@ -30,8 +30,9 @@
 		</div>
 		<div class="col-md-6">
 
-			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-lg">Export Empty CSV Data </button></a>
-			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-lg">Export CSV Data </button></a>
+			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-xs">Export Empty CSV Data </button></a>
+			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-xs">Export CSV Data </button></a>
+			<a href="/Pharmacist/request-new-category/"><button type="button" class="btn btn-primary btn-xs">Request new Category </button></a>
 		</div>
 
 	</div>

@@ -188,7 +188,8 @@
 										<h5>
 											@php
 											$total_fee = $pharmacistCount * $totalfee;
-											echo"&#8369;$total_fee";
+											
+											echo number_format((float)$total_fee, 2, '.', '');
 
 											@endphp		
 											{!! Form::hidden('historycart_shipping_fee',$total_fee) !!}
@@ -203,7 +204,10 @@
 										<h5>	
 											@php
 											$overall_total = $totalprice + $total_fee - $subtotalquant;	
-											echo"&#8369;$overall_total";
+											
+
+											echo '&#8369;'.number_format((float)$overall_total, 2, '.', '');
+
 
 											@endphp	
 											

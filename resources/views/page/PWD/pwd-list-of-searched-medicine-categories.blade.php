@@ -58,14 +58,19 @@ p{
 					</div>
 
 					<div class="form-group">
-						<label >Select Category</label><br>
-						<div class="col-md-12">
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Children's Health</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Cough & Colds</button>
-					</div>					
-				</div>
+
+						
+						
+							
+						<select class="custom-select">
+  						<option selected>Select a Category</option>
+  						@foreach($categories as $category)
+  						<option value="{{$category->category_id}}">{{$category->category_name}}</option>
+  						@endforeach
+						</select>
+						
+
+					</div>	
 
 					<div class="form-group">
 						<label >Select Range</label>

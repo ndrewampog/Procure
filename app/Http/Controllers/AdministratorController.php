@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserInformation;
 use App\Categories;
+use Input;
 use Auth;
 
 class AdministratorController extends Controller
@@ -16,6 +17,29 @@ public function indexAdmin()
         return view('page.Administrator.index');
 
 
+    }
+
+    public function AddNewCategory()
+    {
+        return view('page.Administrator.add-new-category');
+    }
+
+    public function AddNewCategorySave(Request $request)
+    {
+
+
+        $category = new Categories;
+        $category->user_id = Auth::User()->id;
+
+        $category->category_name        = Input::get('category_name');
+       
+        $category->category_status      = 'Approved';
+
+
+        $category->save();
+        
+      
+        return redirect('/Administrator/add-new-category/');
     }
 
     public function listOfClients()
@@ -50,21 +74,21 @@ public function indexAdmin()
     }
 
     public function CategoryApproval(Request $request, $id){
-        $a = User::find($id);
+        $a = Categories::find($id);
         // where user is pharmacist
-        $a->status  = 'Approved';
+        $a->category_status  = 'Approved';
         $a->save();
 
-        return redirect('/Administrator/category-approval/');
+        return redirect('/Administrator/list-of-categories/');
 
     }
         public function CategoryDecline(Request $request, $id){
-        $a = User::find($id);
+        $a = Categories::find($id);
         // where user is pharmacist
-        $a->status  = 'Approved';
+        $a->category_status  = 'Approved';
         $a->save();
 
-        return redirect('/Administrator/category-approval/');
+        return redirect('/Administrator/list-of-categories/');
 
     }
     public function adminprofile(){
@@ -89,11 +113,11 @@ public function indexAdmin()
         return redirect('/Administrator/profile');
     }
     public function listOfCategories()
-    {
+    {   
 
         $categories = Categories::where('category_status','=','Pending')->get();
 
-        return view('page.Administrator.category-approval', compact('categories'));
+        return view('page.Administrator.list-of-categories', compact('categories'));
     }
 
 

@@ -32,10 +32,14 @@ Route::get('/Administrator/index','AdministratorController@indexAdmin');
 Route::get('/Administrator/list-of-clients','AdministratorController@listOfClients');
 Route::post('/Administrator/Registration-Approval/{id}','AdministratorController@PharmacyRegistrationApproval');
 Route::post('/Administrator/Registration-Decline/{id}','AdministratorController@PharmacyRegistrationDecline');
-Route::get('/Administrator/category-approval','AdministratorController@listOfCategories');
+Route::get('/Administrator/list-of-categories/','AdministratorController@listOfCategories');
+Route::post('/Administrator/Category-Approval/{id}','AdministratorController@CategoryApproval');
+Route::post('/Administrator/Category-Decline/{id}','AdministratorController@CategoryDecline');
 Route::get('/Administrator/profile/','AdministratorController@adminprofile');
 Route::get('/Administrator/update-profile/{id}','AdministratorController@adminprofileedit');
 Route::post('/Administrator/store-profile/{id}','AdministratorController@adminprofilestore');
+Route::get('/Administrator/add-new-category/','AdministratorController@AddNewCategory');
+Route::post('/Administrator/add-new-category/','AdministratorController@AddNewCategorySave');
 
 
 /*Normal User*/
@@ -79,7 +83,8 @@ Route::get('/Pharmacist/download-csv/{id}','PharmacistController@PharmadownloadC
 Route::get('/Pharmacist/update-csv','PharmacistController@PharmaupdateList');
 Route::get('/Pharmacist/item-information/{id}','PharmacistController@PharmaitemInfo');
 Route::get('/Pharmacist/sale-history','PharmacistController@PharmasalesHistory');
-
+Route::get('Pharmacist/request-new-category','PharmacistController@RequestNewCategory');
+Route::post('Pharmacist/request-new-category','PharmacistController@RequestNewCategorySave');
 
 Route::get('/Pharmacist/update-item-list/{id}','PharmacistController@UpdatePharmaitemList');
 Route::post('/Pharmacist/store-item-list/{id}','PharmacistController@StorePharmaitemList');

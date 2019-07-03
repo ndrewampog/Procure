@@ -37,21 +37,26 @@ p{
 						<select class="form-control" name="search_category">
 							
 							<option value="select_all">Select All</option>
-							@foreach($categories as $category)
-							<option value="{{ $category->medicine_type }}">{{ $category->medicine_type }}</option>
+							@foreach($med_types as $type)
+							<option value="{{ $type->medicine_type }}">{{ $type->medicine_type }}</option>
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label >Select Category</label><br>
-						<div class="col-md-12">
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Allergy</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Body Pain</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Children's Health</button>
-					<button type="button" class="btn btn-primary btn-block" style="text-align: left">Cough & Colds</button>
-					</div>					
-				</div>
+
+						
+						
+							
+						<select class="custom-select">
+  						<option selected>Select a Category</option>
+  						@foreach($categories as $category)
+  						<option value="{{$category->category_id}}">{{$category->category_name}}</option>
+  						@endforeach
+						</select>
+						
+
+					</div>	
 
 					<div class="form-group">
 						<label >Select Range</label>
@@ -70,15 +75,15 @@ p{
 			<div class="row">
 				@foreach($medicines as $medicine)
 				<div class="col-md-4 card ">
-					<a href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
-					<p> <b><a style="color: #212529 "  href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a><br>
-				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_generic_name !!}</a><br>
-				<a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a></b></p>
+					<a href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"><img class="card-img-top" src="../../../../{!! $medicine->medicine_image !!}" alt=""></a>
+					<p> <b><a style="color: #212529 "  href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_brand_name !!}</a><br>
+				<a style="color: #212529" href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}">{!! $medicine->medicine_generic_name !!}</a><br>
+				<a style="color: #212529" href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> &#8369; {!! $medicine->medicine_price !!}</a></b></p>
 				
 				</b></p>
 
 
-				<p align="right"><a style="color: #212529" href="/Normal-User/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a></p>
+				<p align="right"><a style="color: #212529" href="/SeniorCitizen/medicine-information/{!! $medicine->medicine_id !!}"> {!! $medicine->userpharma->userinfo->pharma_name !!}</a></p>
 
 
 

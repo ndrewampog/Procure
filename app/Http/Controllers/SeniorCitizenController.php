@@ -14,6 +14,7 @@ use App\UserLocation;
 use App\Penaltize;
 use App\ShippingFee;
 use App\Notification;
+use App\Categories;
 use Auth;
 use Cookie;
 use Input;
@@ -574,11 +575,11 @@ $current = Carbon::now()->toDateString();
             }
         }
         $medicines = Medicine::whereIn('user_id',$med_loc)->paginate(6);
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $categories = Categories::where('category_status','=','Approved')->get();
 
 
-
-        return view('page.SeniorCitizen.sc-list-of-medicine',compact('medicines','categories'));
+        return view('page.SeniorCitizen.sc-list-of-medicine',compact('medicines','med_types','categories'));
     }   
 
     public function SeniorCitizensearchcategories(Request $request)
@@ -651,11 +652,12 @@ $current = Carbon::now()->toDateString();
             $medicines = Medicine::whereIn('user_id',$med_loc)->where('medicine_category','=',$search_category)->get();
         }
 
-        $categories = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_category']);
+        $med_types = Medicine::whereIn('user_id',$med_loc)->distinct()->get(['medicine_type']);
+        $categories = Categories::where('category_status','=','Approved')->get();
 
         
 
-        return view('page.SeniorCitizen.sc-list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range'));
+        return view('page.SeniorCitizen.sc-list-of-searched-medicine-categories',compact('medicines','med_types','search_category','search_range','categories'));
     }   
 
 
