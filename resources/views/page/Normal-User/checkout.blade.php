@@ -1,6 +1,12 @@
 @extends('layouts.user')
 
 @section('contents')
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+</head>
+
 <style type="text/css">
   .div1 {
  
@@ -24,6 +30,8 @@
   }
 </style>
 
+{!! Form::open(array('url' => '/Normal-User/proceed-with-your-order', 'files'=>true  ))!!}
+
 
   <div class="container">
     <h1 class="mt-4 mb-3">Checkout</h1>
@@ -34,7 +42,14 @@
         <div class="container">
           <p>
             <small><b>Name : </b>{!! Auth::user()->userinfo->fname !!} {!! Auth::user()->userinfo->mname !!} {!! Auth::user()->userinfo->lname !!}<br></small>
-            <small><b>Address : </b>{!! Auth::user()->userinfo->fname !!} {!! Auth::user()->userinfo->mname !!} {!! Auth::user()->userinfo->lname !!}<br></small>
+            
+  <div class="form-group">
+    <label for="exampleInputEmail1"><small>Enter Street Addresss</small></label>
+    <input type="text" class="form-control" name="address">
+
+  </div>
+
+
             <small><b>Contact Number : </b>+{!! Auth::user()->userinfo->contact !!} <br></small>
          </p>
 
@@ -49,7 +64,7 @@
 </div>
       @php
       $totalprice = 0;
-      $overalltotal = 0;
+      $totalquant = 0;
       $payment_total = 0;
 
       @endphp
@@ -94,7 +109,7 @@
 
               $totalprice=$value;
 
-              $overalltotal+=$value;
+              $totalquant+=$value;
 
 
              
@@ -119,6 +134,30 @@
   <hr>
   <div class="container">
    <h4>Payment Option</h4>
+    <div class="col-md-12">  
+      <p class="text-right">
+
+      <input  type="radio" data-toggle="collapse" data-target="#collapseOne"/ name="payment_type" value="Bank Type"> Bank Type&nbsp;
+
+      <input  type="radio" data-toggle="collapse" data-target="#collapseOne"name="payment_type" value="Cash on Delivery" checked/> Cash on Delivery
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              {!! Form::text('bank_name',null,['class'=>'form-control','placeholder'=>'bank Name']) !!}
+              {!! Form::text('bank_account',null,['class'=>'form-control','placeholder'=>'bank account']) !!}
+              {!! Form::text('bank_password',null,['class'=>'form-control','placeholder'=>'bank password']) !!}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      </p>
+      <br>
+ </div>  
  </div>
  
  <hr>
@@ -142,8 +181,9 @@
       <p class="text-right">
 
       @php
-      echo"$overalltotal";
+      echo"$totalquant";
       @endphp
+                  {!! Form::hidden('historycart_total_item',$totalquant) !!}
       <br>
       @php
       $total_fee = $pharmacistCount * $totalfee;
@@ -153,41 +193,28 @@
       {!! Form::hidden('historycart_shipping_fee',$total_fee) !!}<br>
       <b>
       @php
-      $payment_total = $overalltotal + $total_fee; 
+      $payment_total = $totalquant + $total_fee; 
       echo"&#8369;$payment_total";
+
       @endphp
 
+                    {!! Form::hidden('historycart_total_prices',$payment_total) !!}
       </b>
 
 
       </p>
       <br>
-
-
  </div>
- <p>
-
-  
-
  </div>
  <div class="container">
   <div class="row">
-    <div class="col text-center">
-      <button class="btn btn-danger btn-block">PLACE ORDER</button>
+    <div class="col text-center">  
+       {!!Form::submit('Proceed With Your Order',['class'=>'btn btn-lg btn-primary btn-block']) !!}
+    
     </div>
  </div>
  </div>
+ <br>
+
+  {!! Form::close() !!}
 @endsection
-
-</div>
-
-<!--   <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Sample
-  </a>
-
-</p>
-<div class="collapse" id="collapseExample">
-  
-
- 
-</div> -->

@@ -15,6 +15,8 @@ use App\Penaltize;
 use App\ShippingFee;
 use App\Notification;
 use App\Categories;
+use App\Payment;
+use App\Bank;
 use Auth;
 use Cookie;
 use Input;
@@ -246,7 +248,8 @@ class NormalUserController extends Controller
     }    
 
     public function userproceedOrder(Request $request)
-    {
+    {   
+        
         $cart = new HistoryCart;
         $cart->user_id = Auth::User()->id;
         $cart->historycart_discount =  $request['historycart_discount'];
@@ -274,8 +277,32 @@ class NormalUserController extends Controller
 
             $count++;
         }
-        return Redirect::back();
+
+        $payment = new Payment;
+        $payment->user_id = Auth::user()->id;
+        $payment->cart_id = $cart->historycart_id;
+        $payment->address = $request['address'];
+        $payment->payment_type = $request['payment_type'];
+        $payment->amount =         $request['historycart_total_prices'];
+        $payment->save();
+
+
+        if($request['payment_type'] == "Bank Type"){
+
+            $bank = new Bank;
+            $bank->payment_id =     $payment->payment_id;
+            $bank->bank_name =      $request['bank_name'];
+            $bank->bank_account =   $request['bank_account'];
+            $bank->bank_password =  $request['bank_password'];
+            $bank->amount =         $request['historycart_total_prices'];
+            $bank->save();   
+
+        }
+
+
+        return Redirect('/Normal-User/history-purchase-list/');
     }
+
 
     public function userreproceedOrder(Request $request)
     {

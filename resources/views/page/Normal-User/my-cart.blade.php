@@ -26,7 +26,7 @@
 
 
 <div class="container">
-	{!! Form::open(array('url' => '/Normal-User/proceed-with-your-order', 'files'=>true  ))!!}
+	
 
 
 	<h2 class="my-4">My Cart</h2>
@@ -179,7 +179,9 @@
 
 
 
-					{!!Form::submit('Proceed With Your Order',['class'=>'btn btn-lg btn-primary btn-block']) !!}
+
+					<a href="/Normal-User/checkout/" class="btn btn-lg btn-primary btn-block">Proceed with your Order</a> 
+					
 				</div>
 			</div>
 
@@ -187,7 +189,7 @@
 
 		</div>
 	</div>
-	{!! Form::close() !!}
+
 </div>
 
 
