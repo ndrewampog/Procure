@@ -117,6 +117,7 @@ Route::post('/PWD/list-of-searched-medicine-brand','PWDController@MedicineSearch
 Route::get('/PWD/nearest-pharmacy','PWDController@PWDnearestPharmacy');
 Route::get('/PWD/cheaper-nearest-medicine','PWDController@PWDcheaperMedicine');
 Route::get('/PWD/branded-nearest-medicine','PWDController@PWDbrandedMedicine');
+Route::get('/PWD/pwd-checkout','PWDUserController@checkOut');
 
 /*Senior Citizen*/
 
@@ -147,6 +148,7 @@ Route::post('/SeniorCitizen/list-of-searched-medicine-brand','SeniorCitizenContr
 Route::get('/SeniorCitizen/nearest-pharmacy','SeniorCitizenController@SeniorCitizennearestPharmacy');
 Route::get('/SeniorCitizen/cheaper-nearest-medicine','SeniorCitizenController@SeniorCitizencheaperMedicine');
 Route::get('/SeniorCitizen/branded-nearest-medicine','SeniorCitizenController@SeniorCitizenbrandedMedicine');
+Route::get('/SeniorCitizen/sc-checkout','SeniorCitizenController@checkOut');
 
 
 

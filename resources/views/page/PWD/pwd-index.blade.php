@@ -8,11 +8,27 @@
   height: 400px;
 }
 </style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8HxCRDmZUZ_bvLDr3nSPNafElph4A0HE&libraries=places"type= "text/javascript">
 </script>
 <br><br>
-<div class="container">
+
+<br>
+<br>
+<br>
+@if($UserLoc == '0')
+
+<!-- Error if statement  , if 0 siya mugawas gihapon ang modal dapat dili siya . -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#myModal").modal({
+      backdrop: 'static',
+      keyboard: false,
+      show: true
+    });
+  });
+</script> 
+  <div class="container">
 
 
   <div id="myModal" class="modal fade">
@@ -35,24 +51,18 @@
         </div>
       </div>
     </div>
-  </div>	
+  </div>  
 
 </div>
-<br>
-<br>
-<br>
-@if($UserLoc == '0')
 
-<!-- Error if statement  , if 0 siya mugawas gihapon ang modal dapat dili siya . -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#myModal").modal({
-      backdrop: 'static',
-      keyboard: false,
-      show: true
-    });
-  });
-</script>  
+
+
+
+  
+
+
+
+
 @endif
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -65,7 +75,7 @@
       </div>
       <div class="modal-body">
         <div class="col-md-12">
-          {!! Form::open(array('url' => '/Normal-User/location-update', 'files'=>true  ))!!}
+          {!! Form::open(array('url' => '/PWD/location-update', 'files'=>true  ))!!}
           <div class="form-group">  
             <div class="input-group">
 

@@ -65,14 +65,14 @@ p{
 						<select class="custom-select">
 
 							<option value="select_all"
-								@if($search_category == 'select_all')
+								@if($search_types == 'select_all')
 								selected="selected"
 								@endif>
 								Select All
 							</option>
   						@foreach($categories as $category)
   						<option value="{{$category->category_id}}" 
-  							@if($category->category_id == $search_category)
+  							@if($category->category_id == $search_types)
 								selected="selected"
 								@endif>
 								{{$category->category_name}}</option>

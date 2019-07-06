@@ -163,7 +163,7 @@
 									<p class="text-left">
 										<h5>Discount (
 										@php
-										echo number_format((float)$subtotalquant, 2, '.', '');
+										echo '20%';
 										@endphp )
 									</h5>
 									</p>
@@ -175,7 +175,7 @@
 								<td><p class="text-right">
 									<h5>
 										@php
-										echo number_format((float)$subtotal, 2, '.', '');
+										echo '-&#8369;'.number_format((float)$subtotalquant, 2, '.', '');
 										@endphp
 									</h5>
 								</p>
@@ -189,7 +189,7 @@
 											@php
 											$total_fee = $pharmacistCount * $totalfee;
 											
-											echo number_format((float)$total_fee, 2, '.', '');
+											echo '&#8369;'.number_format((float)$total_fee, 2, '.', '');
 
 											@endphp		
 											{!! Form::hidden('historycart_shipping_fee',$total_fee) !!}
@@ -221,7 +221,7 @@
 
 
 
-					{!!Form::submit('Proceed With Your Order',['class'=>'btn btn-lg btn-primary btn-block']) !!}
+					<a href="/SeniorCitizen/sc-checkout/" class="btn btn-lg btn-primary btn-block">Proceed with your Order</a>
 				</div>
 			</div>
 

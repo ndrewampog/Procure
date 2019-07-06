@@ -15,6 +15,8 @@ use App\Penaltize;
 use App\ShippingFee;
 use App\Notification;
 use App\Categories;
+use App\Payment;
+use App\Bank;
 use Auth;
 use Cookie;
 use Input;
@@ -246,7 +248,8 @@ class PWDController extends Controller
     }    
 
     public function PWDproceedOrder(Request $request)
-    {
+    {   
+        
         $cart = new HistoryCart;
         $cart->user_id = Auth::User()->id;
         $cart->historycart_discount =  $request['historycart_discount'];
@@ -274,7 +277,30 @@ class PWDController extends Controller
 
             $count++;
         }
-        return Redirect::back();
+
+        $payment = new Payment;
+        $payment->user_id = Auth::user()->id;
+        $payment->cart_id = $cart->historycart_id;
+        $payment->address = $request['address'];
+        $payment->payment_type = $request['payment_type'];
+        $payment->amount =         $request['historycart_total_prices'];
+        $payment->save();
+
+
+        if($request['payment_type'] == "Bank Type"){
+
+            $bank = new Bank;
+            $bank->payment_id =     $payment->payment_id;
+            $bank->bank_name =      $request['bank_name'];
+            $bank->bank_account =   $request['bank_account'];
+            $bank->bank_password =  $request['bank_password'];
+            $bank->amount =         $request['historycart_total_prices'];
+            $bank->save();   
+
+        }
+
+
+        return Redirect('/PWD/pwd-history-purchase-list/');
     }
 
     public function PWDreproceedOrder(Request $request)
@@ -658,7 +684,40 @@ $current = Carbon::now()->toDateString();
 
 
         return view('page.PWD.pwd-list-of-searched-medicine-categories',compact('medicines','categories','search_category','search_range','med_types'));
-    }   
+    }
+
+    public function checkOut(Request $request)
+    {
+        $carts = Mycart::where('user_id','=',Auth::User()->id)->get();
+
+        $carts_id = [];
+        foreach ($carts as $id) {
+            array_push($carts_id, $id->medicine_id);
+        } 
+        $count = 0;
+        //get all the id of userinformation
+        $info = array();
+        foreach ($carts_id as $id2) {
+            $medicineinfo = Medicine::where('medicine_id','=',$id2)->get();
+            foreach ($medicineinfo as $id3) {
+                array_push($info, $id3->user_id);
+            }
+            $count++;
+        }
+        $vals = array_count_values($info);
+        $pharmacistCount= count($vals);
+
+        $count_carts = Mycart::where('user_id','=',Auth::User()->id)->count();
+        $shippingfee = ShippingFee::all();
+
+        $fee = [];
+        foreach ($shippingfee as $id) {
+            array_push($fee, $id->shipping_fees);
+        } 
+
+        $totalfee = implode(',',$fee);
+        return view('page.PWD.pwd-checkout',compact('carts','count_carts','pharmacistCount','totalfee'));
+    }    
 
 
 

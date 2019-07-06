@@ -8,36 +8,11 @@
   height: 400px;
 }
 </style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8HxCRDmZUZ_bvLDr3nSPNafElph4A0HE&libraries=places"type= "text/javascript">
 </script>
 <br><br>
-<div class="container">
 
-
-  <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Subscribe our Newsletter</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="md-12">
-            {!! Form::open(array('url' => '/Normal-User/use-register-location', 'files'=>true  ))!!}
-            {!!Form::submit('Home Address',['class'=>' nav-link btn btn-primary btn-lg btn-block ']) !!}
-            {!! Form::close() !!}
-          </div>
-          <br>
-          <div class="md-12">
-            <a class="nav-link btn btn-primary btn-lg btn-block " href="#" data-toggle="modal" data-target="#registration">Update Location</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>	
-
-</div>
 <br>
 <br>
 <br>
@@ -52,7 +27,42 @@
       show: true
     });
   });
-</script>  
+</script> 
+  <div class="container">
+
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Subscribe our Newsletter</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="md-12">
+            {!! Form::open(array('url' => '/PWD/use-register-location', 'files'=>true  ))!!}
+            {!!Form::submit('Home Address',['class'=>' nav-link btn btn-primary btn-lg btn-block ']) !!}
+            {!! Form::close() !!}
+          </div>
+          <br>
+          <div class="md-12">
+            <a class="nav-link btn btn-primary btn-lg btn-block " href="#" data-toggle="modal" data-target="#registration">Update Location</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+</div>
+
+
+
+
+  
+
+
+
+
 @endif
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -65,7 +75,7 @@
       </div>
       <div class="modal-body">
         <div class="col-md-12">
-          {!! Form::open(array('url' => '/Normal-User/location-update', 'files'=>true  ))!!}
+          {!! Form::open(array('url' => '/PWD/location-update', 'files'=>true  ))!!}
           <div class="form-group">  
             <div class="input-group">
 

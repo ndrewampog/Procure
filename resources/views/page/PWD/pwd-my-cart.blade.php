@@ -93,7 +93,10 @@
 							{!! $cart->medicine_quantity !!}pc(s)
 							@php
 							$value =  $cart->medicine_price  * $cart->medicine_quantity;
+
 							$totalprice+=$value;
+							$subtotal = $totalprice * ((100-20) / 100);
+							
 							@endphp
 						</div>
 						<div clas="div5">
@@ -113,12 +116,18 @@
 			@endforeach
 
 			@php
-			$totalquant = 0;
+			$totalquant = 0 ;
 			@endphp
 			@foreach($carts as $cart)
 			@php
 			$quant =  $cart->medicine_quantity + 0;
-			$totalquant+=$quant;
+			$totalquant+=$quant ;
+
+
+			$subtotalquant = (20 / 100)* $totalprice ;
+
+			
+			
 			@endphp
 
 			@endforeach
@@ -132,7 +141,8 @@
 							<tr>
 								<td colspan="3">
 									<p class="text-left">
-										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item )</h5>
+										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item(s) )</h5>
+
 									</p>
 
 									{!! Form::hidden('historycart_total_item',$totalquant) !!}
@@ -146,6 +156,30 @@
 								</p>
 							</td>
 							</tr>
+
+							<tr>
+								<td colspan="3">
+									<p class="text-left">
+										<h5>Discount (
+										@php
+										echo '20%';
+										@endphp )
+									</h5>
+									</p>
+
+
+
+									{!! Form::hidden('historycart_total_item',$totalquant) !!}
+								</td>
+								<td><p class="text-right">
+									<h5>
+										@php
+										echo '-&#8369;'.number_format((float)$subtotalquant, 2, '.', '');
+										@endphp
+									</h5>
+								</p>
+							</td>
+							</tr>
 							<tr>
 								<td colspan="3"><p class="text-left"><h5>Shipping Fee</h5></p></td>
 								<td>
@@ -153,7 +187,8 @@
 										<h5>
 											@php
 											$total_fee = $pharmacistCount * $totalfee;
-											echo"&#8369;$total_fee";
+											
+											echo '&#8369;'.number_format((float)$total_fee, 2, '.', '');
 
 											@endphp		
 											{!! Form::hidden('historycart_shipping_fee',$total_fee) !!}
@@ -167,8 +202,12 @@
 									<p class="text-right">
 										<h5>	
 											@php
-											$overall_total = $totalprice + $total_fee;	
+											$overall_total = $totalprice + $total_fee - $subtotalquant;	
+											
+
 											echo '&#8369;'.number_format((float)$overall_total, 2, '.', '');
+
+
 											@endphp	
 											
 										{!! Form::hidden('historycart_total_prices',$overall_total) !!}
@@ -181,7 +220,7 @@
 
 
 
-					{!!Form::submit('Proceed With Your Order',['class'=>'btn btn-lg btn-primary btn-block']) !!}
+					<a href="/PWD/pwd-checkout/" class="btn btn-lg btn-primary btn-block">Proceed with your Order</a>
 				</div>
 			</div>
 
