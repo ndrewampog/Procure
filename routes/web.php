@@ -117,7 +117,7 @@ Route::post('/PWD/list-of-searched-medicine-brand','PWDController@MedicineSearch
 Route::get('/PWD/nearest-pharmacy','PWDController@PWDnearestPharmacy');
 Route::get('/PWD/cheaper-nearest-medicine','PWDController@PWDcheaperMedicine');
 Route::get('/PWD/branded-nearest-medicine','PWDController@PWDbrandedMedicine');
-Route::get('/PWD/pwd-checkout','PWDUserController@checkOut');
+Route::get('/PWD/pwd-checkout','PWDController@checkOut');
 
 /*Senior Citizen*/
 

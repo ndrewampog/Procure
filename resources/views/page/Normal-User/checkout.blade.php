@@ -202,7 +202,7 @@
       <b>
       @php
       $payment_total = $totalprice + $total_fee; 
-      echo"&#8369;$payment_total";
+      echo '&#8369;'.number_format((float)$payment_total, 2, '.', '');
 
       @endphp
 

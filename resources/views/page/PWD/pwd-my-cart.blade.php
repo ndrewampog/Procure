@@ -141,7 +141,7 @@
 							<tr>
 								<td colspan="3">
 									<p class="text-left">
-										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item(s) )</h5>
+										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item(s))</h5>
 
 									</p>
 
@@ -174,7 +174,7 @@
 								<td><p class="text-right">
 									<h5>
 										@php
-										echo '-&#8369;'.number_format((float)$subtotalquant, 2, '.', '');
+										echo '-'.number_format((float)$subtotalquant, 2, '.', '');
 										@endphp
 									</h5>
 								</p>

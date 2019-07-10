@@ -90,8 +90,8 @@ p{
 				</div>
 				@endforeach
 
-			 <div class = "col-md-12" style="text-align: center">
-                        <center>{!! $medicines->render() !!}</center>
+			 <div class = "col-md-12" align="center">
+                        {!! $medicines->render() !!}
                     </div>
 		</div>
 	</div>
