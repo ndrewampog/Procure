@@ -340,6 +340,8 @@ class NormalUserController extends Controller
         $cart_shippeds = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Shipped')->get();
         $cart_cancel_purchases = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Cancel Order')->get();
         $cart_delivereds = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Delivered')->get();
+
+        
         return view('page.Normal-User.history-purchase-list',compact('cart_cancel_purchases','cart_order_confirmations','cart_shippeds','cart_delivereds'));
     }   
 
@@ -562,7 +564,7 @@ $current = Carbon::now()->toDateString();
         }
         /*end get the get all the pharmacist that status are approved*/
 
-        /*get the location from */
+        
         $location = UserLocation::where('user_id','=',Auth::User()->id)->get();
         $user_id = [];
         foreach ($location as $ids) {
@@ -572,9 +574,9 @@ $current = Carbon::now()->toDateString();
         $user = UserLocation::find($id);
         $location_lat = $user->lat;
         $location_lng = $user->lng;
-        /*end get the location from */
+        
 
-       // this is the process that how to sort all medicine using the location
+       
         $med_loc = array();
         foreach ($info as $id4) {
             $pharmacy = UserInformation::find($id4);
@@ -584,18 +586,17 @@ $current = Carbon::now()->toDateString();
             $latitudeTo = $pharmacy->lat;
             $longitudeTo = $pharmacy->lng;
 
-        //Calculate distance from latitude and longitude
+        
             $theta = $longitudeFrom - $longitudeTo;
             $dist = sin(deg2rad($latitudeFrom)) * sin(deg2rad($latitudeTo)) +  cos(deg2rad($latitudeFrom)) * cos(deg2rad($latitudeTo)) * cos(deg2rad($theta));
             $dist    = acos($dist);
             $dist    = rad2deg($dist);
             $miles    = $dist * 60 * 1.1515;
-            // Conversion of miles  to kilometers
+            
             $distance = ($miles * 1.609344);
 
 
-            // 0.62 is a kilometer of a mile 
-            // Multiply it by 5 to get the 5 kilometer distance and youll get 3.10686
+
 
             if($distance < '3.10686'){
                 $med_loc[] = $pharmacy->user_id;

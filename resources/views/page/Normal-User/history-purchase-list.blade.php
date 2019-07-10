@@ -21,7 +21,7 @@
 									<tr>	
 										<th scope="col" class="text-center">Pharmacy Name</th>
 										<th scope="col" class="text-center">Total Price</th>
-										<th scope="col" class="text-center">Quantity</th>
+										<th scope="col" class="text-center">Total Quantity</th>
 										<th scope="col" class="text-center">Date Purchase</th>
 										<th scope="col" class="text-center">Action</th>
 									</tr>

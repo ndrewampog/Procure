@@ -142,7 +142,7 @@
 							<tr>
 								<td colspan="3">
 									<p class="text-left">
-										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item(s) )</h5>
+										<h5>Subtotal ( @php echo "$totalquant"; @endphp Item ) </h5>
 
 									</p>
 

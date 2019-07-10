@@ -105,15 +105,10 @@
             <div class="div4">
               {!! $cart->medicine_quantity !!}pc(s)
               @php
+
               $value =  $cart->medicine_price  * $cart->medicine_quantity;
 
-              $totalprice=$value;
-
-              $totalquant+=$value;
-
-
-             
-              
+              $totalprice+=$value;        
               @endphp
             </div>
             <div class="div5">
@@ -130,6 +125,17 @@
       </div>
   </div><br>
   @endforeach
+
+      @php
+      $totalquant = 0;
+      @endphp
+      @foreach($carts as $cart)
+      @php
+      $quant =  $cart->medicine_quantity + 0;
+      $totalquant+=$quant;
+      @endphp
+
+      @endforeach
 
   <hr>
   <div class="container">
@@ -166,6 +172,8 @@
   <div class="row"> 
     <div class="col-md-6">
     <div class="div2">
+      Subtotal (@php echo "$totalquant"; @endphp Item)<br>
+
     
    <p>
 
@@ -181,9 +189,9 @@
       <p class="text-right">
 
       @php
-      echo"$totalquant";
+      echo"$totalprice";
       @endphp
-                  {!! Form::hidden('historycart_total_item',$totalquant) !!}
+      {!! Form::hidden('historycart_total_item',$totalquant) !!}
       <br>
       @php
       $total_fee = $pharmacistCount * $totalfee;
@@ -193,7 +201,7 @@
       {!! Form::hidden('historycart_shipping_fee',$total_fee) !!}<br>
       <b>
       @php
-      $payment_total = $totalquant + $total_fee; 
+      $payment_total = $totalprice + $total_fee; 
       echo"&#8369;$payment_total";
 
       @endphp
