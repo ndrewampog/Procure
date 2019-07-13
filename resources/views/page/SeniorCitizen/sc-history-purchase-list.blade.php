@@ -19,7 +19,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>	
-										<th scope="col" class="text-center">Pharmacist Name</th>
+										<th scope="col" class="text-center">Order No.</th>
 										<th scope="col" class="text-center">Total Price</th>
 										<th scope="col" class="text-center">Quantity</th>
 										<th scope="col" class="text-center">Date Purchase</th>
@@ -30,19 +30,7 @@
 									@foreach($cart_order_confirmations as $cart)
 									<tr>
 										<td class="text-center">
-											@php
-											$cartid = '';
-											@endphp
-											@foreach($cart['AllPurchase'] as $pharma)
-											@if($pharma->medicineHistoryList->user_id == $cartid)
-											@else
-											{!! $pharma->medicineHistoryList->userpharma->userinfo->pharma_name !!}<br>
-											@endif
-											@php
-											$value =  $pharma->medicineHistoryList->user_id ;
-											$cartid=$value;
-											@endphp
-											@endforeach
+											<p>Order: {!!	$cart->historycart_id	!!}</p>
 										</td>
 										<td class="text-center">&#8369; {!! $cart->historycart_total_price !!}</td>
 										<td class="text-center">{!! $cart->historycart_total_item !!}</td>

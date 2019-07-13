@@ -31,7 +31,7 @@ p{
 			<div class="card ">
 
 				<div style="margin-right: 0px" class="card-body">
-					{!! Form::open(array('url' => '/Normal-User/list-of-searched-medicine-categories', 'files'=>true  ))!!}
+					{!! Form::open(array('url' => '/PWD/list-of-searched-medicine-categories', 'files'=>true  ))!!}
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Select type</label>
 						<select class="form-control" name="search_category" id="exampleFormControlSelect1">

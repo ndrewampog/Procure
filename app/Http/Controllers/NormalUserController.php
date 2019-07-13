@@ -127,19 +127,23 @@ class NormalUserController extends Controller
                 $medi_id = [];
                 foreach ($medicine_id as $id) {
                     array_push($medi_id, $id->mycart_id);
+                    // Sa kada add niya og Medicine I push ni niya ang values sa Mycart
                 }
                 $medici_id = implode(',',$medi_id);
                 $medi = Mycart::where('mycart_id','=',$medici_id)->get();
                 $medi_quantity = [];
                 foreach ($medi as $id) {
                     array_push($medi_quantity, $id->medicine_quantity);
+                    // Kada Quantity sa Medicine iya i push 
                 }
                 $quantity = implode(',',$medi_quantity);
 
                 $new = $request['medicine_quantity'];
 
                 $cart = Mycart::find($medici_id);
+                // Gi kuha niya ang Medicines nga gi pang add ni user
                 $cart->medicine_quantity = $quantity + $new;
+                // para Musud ang quantity sa db
                 $cart->save();
 
                 //pagmenus sa quantity sa medicine
@@ -337,11 +341,13 @@ class NormalUserController extends Controller
     public function userhistoryCartList()
     {
         $cart_order_confirmations = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Order Confirmation')->get();
+
         $cart_shippeds = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Shipped')->get();
+        
         $cart_cancel_purchases = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Cancel Order')->get();
         $cart_delivereds = HistoryCart::where('user_id','=',Auth::User()->id)->where('status_delivery','=','Delivered')->get();
 
-        
+
         return view('page.Normal-User.history-purchase-list',compact('cart_cancel_purchases','cart_order_confirmations','cart_shippeds','cart_delivereds'));
     }   
 
@@ -552,6 +558,7 @@ $current = Carbon::now()->toDateString();
         foreach ($pharma as $id1) {
             array_push($pharmaID, $id1->id);
         }
+
         $count = 0;
         //get all the id of userinformation
         $info = array();
@@ -575,8 +582,8 @@ $current = Carbon::now()->toDateString();
         $location_lat = $user->lat;
         $location_lng = $user->lng;
         
+        // get where user is located
 
-       
         $med_loc = array();
         foreach ($info as $id4) {
             $pharmacy = UserInformation::find($id4);
