@@ -16,10 +16,7 @@
 
 <div class="container"><br><br>
 	<div class="row">
-		
-		<div class="col-md-2">
-		</div>
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<h5 class="modal-title">Upload CSV : </h5><br>
 			{!! Form::open(array('url' => '/Pharmacist/add-new-medicine', 'files'=>true  ))!!}
 			<div class="form-group">
@@ -28,7 +25,7 @@
 			{!!Form::submit('Upload',['class'=>'btn btn-success btn-lg']) !!}
 			{!! Form::close() !!}
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-7">
 
 			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-xs">Export Empty CSV Data </button></a>
 			<a href="/Pharmacist/download-csv/{!! Auth::user()->id !!}"><button type="button" class="btn btn-primary btn-xs">Export CSV Data </button></a>

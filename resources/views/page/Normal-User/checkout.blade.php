@@ -145,7 +145,7 @@
 
       <input  type="radio" data-toggle="collapse" data-target="#collapseOne"/ name="payment_type" value="Bank Type"> Bank Type&nbsp;
 
-      <input  type="radio" data-toggle="collapse" data-target="#collapseOne"name="payment_type" value="Cash on Delivery" checked/> Cash on Delivery
+      <input  type="radio"  name="payment_type" value="Cash on Delivery" checked/> Cash on Delivery
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
 

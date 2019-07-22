@@ -144,4 +144,9 @@ map.setZoom(15);
 
     });
 </script>
+<style>
+    .pac-container {
+        z-index: 10000 !important;
+    }
+</style>
 @endsection

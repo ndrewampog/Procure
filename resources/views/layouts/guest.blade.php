@@ -9,23 +9,23 @@
   <meta name="author" content="">
 
 
-  <title>Modern Business - Start Bootstrap Template</title>
+  <title>Procure Home</title>
 
   <!-- Bootstrap core CSS -->
 
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/modern-business.cs') }}" rel="stylesheet">
+
   <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light fixed-top">
+  <nav class="navbar navbar-light fixed-top navbar-expand-lg  bg-light fixed-top">
     <div class="container">
-       <a href="#" class="pull-left"><img src="/Procure_Logo/Procurelogo.png" width="100" height="70" ></a>     
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+       <a href="#" class="pull-left"><img src="/Procure_Logo/Procurelogo2.png" width="100" height="40" ></a>     
+      <button class="navbar-toggler navbar-toggler-right " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -54,13 +54,25 @@
   </nav>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   @yield('contents')
   <!-- /.container -->
   <br>
   <!-- Footer -->
   <footer class="footer  bg-light">
     <div class="container">
-      <p class="m-0 text-center text-dark">Copyright &copy; ProCure 2018</p>
+      <strong><p class="m-0 text-center text-dark">Copyright &copy; ProCure 2018</p></strong>
     </div>
   </footer>
 

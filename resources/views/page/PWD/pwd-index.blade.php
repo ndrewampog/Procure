@@ -99,7 +99,7 @@
   </div>
 </div>
 <script type="text/javascript">
-    var map = new google.maps.Map(document.getElementById('map-canvas'),{
+     var map = new google.maps.Map(document.getElementById('map-canvas'),{
         center:{
             lat:10.2969,
             lng:123.8887
@@ -144,4 +144,9 @@ map.setZoom(15);
 
     });
 </script>
+<style>
+    .pac-container {
+        z-index: 10000 !important;
+    }
+</style>
 @endsection

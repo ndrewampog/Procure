@@ -30,7 +30,7 @@
   }
 </style>
 
-{!! Form::open(array('url' => '/Normal-User/proceed-with-your-order', 'files'=>true  ))!!}
+{!! Form::open(array('url' => '/PWD/proceed-with-your-order', 'files'=>true  ))!!}
 
 
   <div class="container">
@@ -66,6 +66,7 @@
       $totalprice = 0;
       $totalquant = 0;
       $payment_total = 0;
+      $subtotalquant = 0;
 
       @endphp
       @foreach($carts as $cart)
@@ -102,6 +103,7 @@
             <div class="div3">
               &#8369; {!! $cart->medicine_price !!}
             </div>
+
             <div class="div4">
               {!! $cart->medicine_quantity !!}pc(s)
               @php
@@ -150,7 +152,7 @@
 
       <input  type="radio" data-toggle="collapse" data-target="#collapseOne"/ name="payment_type" value="Bank Type"> Bank Type&nbsp;
 
-      <input  type="radio" data-toggle="collapse" data-target="#collapseOne"name="payment_type" value="Cash on Delivery" checked/> Cash on Delivery
+      <input  type="radio" name="payment_type" value="Cash on Delivery" checked/> Cash on Delivery
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
 
